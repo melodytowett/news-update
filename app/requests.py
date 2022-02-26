@@ -142,3 +142,22 @@ def process_source_article_results(article_list):
 
     return article_results
 
+def search_topic(topic_name):
+    '''
+    funtion to search  from json
+    '''
+    search_topic_url = ' https://newsapi.org/v2/everything?q=bitcoin&apiKey={}'.format(api_key,topic_name)
+    with urllib.request.urlopen(search_topic_url) as url:
+        search_topic_data = url.read()
+        search_topic_response = json.loads(search_topic_data)
+
+        topic_results = None
+        if search_topic_response['articles']:
+            search_topic_list = search_topic_response['articles']
+            topic_results = process_headlines_results(search_topic_list)
+            return topic_results
+
+        
+        else:
+            return render_template("not found")
+
