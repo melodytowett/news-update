@@ -55,8 +55,6 @@ def process_headlines_results(headline_list):
 
     return headlines_results
 
-
-
 def get_category(category):
     '''
     Fuction that gets the json respone to the url request
@@ -68,8 +66,8 @@ def get_category(category):
 
         category_results = None
 
-        if get_category_response['business']:
-            category_results_list = get_category_response['business']
+        if get_category_response['articles']:
+            category_results_list = get_category_response['articles']
             category_results = process_headlines_results(category_results_list)
 
     return category_results
@@ -103,8 +101,24 @@ def process_source_results(source_list):
         url = source_item.get('url')
         description = source_item.get('description')
 
-        if url:
+        if id:
             source_object = Source(id,name,url,description)
             source_results.append(source_object)
 
     return source_results
+
+def get_source_articles(id):
+    get_source_article_url = 'https://newsapi.org/v2/top-headlines/sources?apiKey={}'.format(id,api_key)
+    with urllib.request.urlopen(get_source_article_url) as url:
+        get_source_data = url.read()
+        get_source_response = json.loads(get_source_data)
+
+        source_articles = None
+        if get_source_response['articles']:
+            source_results_list = get_source_response['articles']
+            source_articles = process_source_article_results(source_results_list)
+
+    return source_articles
+
+def process_source_article_results():
+    
