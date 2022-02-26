@@ -73,3 +73,24 @@ def get_category(category):
 
     return category_results
 
+def get_source():
+    '''
+    Function that gets json response
+    '''
+    get_source_url = source_url.format(api_key)
+    with urllib.request.urlopen(get_source_url) as url:
+        get_source_article_data = url.read()
+        get_source_article_respone = json.loads(get_source_article_data)
+
+        source_article_results = None
+        
+        if get_source_article_respone['sources']:
+            source_results_list = get_source_article_respone['sources']
+            source_article_results = process_source_results(source_results_list)
+
+    return source_article_results
+
+def process_source_results(source_list):
+    '''
+    funtion tha processes the source results
+    '''
