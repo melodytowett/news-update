@@ -1,9 +1,6 @@
-from concurrent.futures import process
-from turtle import title
-from unicodedata import category
 import urllib.request,json
 
-from models import Article,Source
+from .models import Article,Source
 
 api_key = None
 category_url = None
@@ -18,7 +15,7 @@ def configure_request(app):
     api_key = app.config['NEWS_API_KEY']
     category_url = app.config['CATEGORY_URL']
     source_url = app.config['SOURCE_URL']
-    headline_url = app.confg['HEADLINE_URL']
+    headline_url = app.config['HEADLINE_URL']
 
 
 def get_headlines():
