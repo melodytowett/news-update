@@ -7,7 +7,8 @@ def index():
     '''
     View root page function that returns the index page
     '''
-    source_news = get_headlines("source")
-    print(source_news)
+    business_news = get_headlines("business")
+    print(business_news)
     title = 'Home- WElcme to News update'
-    return render_template('index.html',source = source_news,title = title)
+    return render_template('index.html',business = business_news,title = title)
+    
