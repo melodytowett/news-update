@@ -1,3 +1,4 @@
+from os import name
 import urllib.request,json
 
 from .models import Article,Source
@@ -94,3 +95,16 @@ def process_source_results(source_list):
     '''
     funtion tha processes the source results
     '''
+
+    source_results = []
+    for source_item in source_list:
+        id = source_item.get('id')
+        name = source_item.get('name')
+        url = source_item.get('url')
+        description = source_item.get('description')
+
+        if url:
+            source_object = Source(id,name,url,description)
+            source_results.append(source_object)
+
+    return source_results
