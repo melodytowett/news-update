@@ -1,4 +1,4 @@
-from unicodedata import category
+from app.models import Source
 from ..requests import get_headlines,get_category
 from . import main
 from flask import render_template,request,redirect,url_for
@@ -15,7 +15,9 @@ def index():
     return render_template('index.html',headlines= headlines,title=title)
 
 @main.route('/categories/<category>')
-def category(category):
+def index():
     '''
-    
+    method to render category page
     '''
+    category = get_category()
+    return render_template('index.html', category = category)
