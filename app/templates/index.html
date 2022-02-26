@@ -15,7 +15,13 @@
   <ul>
       {%for source in sources%}
       <li> {{sources.title}} </li>
-      <li> {{article.title}} </li>
+      
+      {%endfor%}
+  </ul>
+  <h3>Articles</h3>
+  <ul>
+      {%for article in articles%}
+      <li> {{articles.title}} </li>
       {%endfor%}
   </ul>
 </body>

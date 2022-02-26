@@ -1,6 +1,5 @@
-from os import name
 import urllib.request,json
-
+from flask.templating import render_template
 from .models import Article,Source
 
 api_key = None
@@ -134,8 +133,12 @@ def process_source_article_results(article_list):
         url = article_item.get('url')
 
         if title:
-            article_object = Article(image,title,author,description,time,url)
-            article_results.append(article_object)
+            if description:
+                if image:
+                    if author:
+
+                        article_object = Article(image,title,author,description,time,url)
+                        article_results.append(article_object)
 
     return article_results
 
