@@ -1,9 +1,15 @@
-<body> 
 
+  {% if title %}
+  <title> {{ title }}</title>
+  {% else %}
+  <title>News Update website </title>
+  {% endif %}
+<body> 
     <h3>Business News</h3>
     <ul> 
-        {%for business_news in business%}
-        <li> {{business_news.title}} </li>
+        {%for headlines in headlines%}
+        <li> {{headlines.title}} </li>
         {% endfor%}
     </ul>
+  
 </body>

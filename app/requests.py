@@ -47,8 +47,10 @@ def process_headlines_results(headline_list):
         url = headline_item.get('url')
 
         if image:
-            headline_object = Article(image,title,author,description,time,url)
-            headlines_results.append(headline_object)
+            if description:
+                if time:
+                  headline_object = Article(image,title,author,description,time,url)
+                  headlines_results.append(headline_object)
 
     return headlines_results
 
@@ -65,8 +67,8 @@ def get_category(category):
 
         category_results = None
 
-        if get_category_response['results']:
-            category_results_list = get_category_response['results']
+        if get_category_response['business']:
+            category_results_list = get_category_response['business']
             category_results = process_headlines_results(category_results_list)
 
     return category_results

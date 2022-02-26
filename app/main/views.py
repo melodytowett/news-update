@@ -1,4 +1,5 @@
-from ..requests import get_headlines
+from unicodedata import category
+from ..requests import get_headlines,get_category
 from . import main
 from flask import render_template,request,redirect,url_for
 
@@ -7,7 +8,14 @@ def index():
     '''
     View root page function that returns the index page
     '''
-    business_news = get_headlines()
-    print(business_news)
-    title = 'Home- WElcme to News update'
-    return render_template('index.html',business = business_news,title = title)
+    headlines = get_headlines()
+   # categories = get_category('sports')
+    
+    title = 'Home- Welcome to News update'
+    return render_template('index.html',headlines= headlines,title=title)
+
+@main.route('/categories/<category>')
+def category(category):
+    '''
+    
+    '''
