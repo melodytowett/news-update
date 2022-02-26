@@ -1,10 +1,7 @@
-from distutils.command.config import config
-from distutils.debug import DEBUG
-from sre_constants import CATEGORY
-
-from pkg_resources import SOURCE_DIST
-
-
+# from distutils.command.config import config
+# from distutils.debug import DEBUG
+# from sre_constants import CATEGORY
+# from pkg_resources import SOURCE_DIST
 import os
 class Config:
     '''
