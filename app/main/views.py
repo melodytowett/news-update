@@ -9,7 +9,7 @@ def index():
     View root page function that returns the index page
     '''
     headlines = get_headlines()
-    categories = get_category('business')
+    categories = get_category("sources")
     sources = get_source()
     articles = get_source_articles('articles')
     title = 'Home- Welcome to News update'

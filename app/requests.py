@@ -65,8 +65,8 @@ def get_category(category):
 
         category_results = None
 
-        if get_category_response['articles']:
-            category_results_list = get_category_response['articles']
+        if get_category_response['sources']:
+            category_results_list = get_category_response['sources']
             category_results = process_headlines_results(category_results_list)
 
     return category_results
