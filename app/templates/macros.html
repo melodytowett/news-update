@@ -1,0 +1,10 @@
+{% macro displayHeadlineList(headline_list)%} 
+
+   {% for headline in headline_list %}
+   <div>
+       <a href="{{headline.url}}"> <img src=" {{headline.image}} " alt=""></a>
+       <p> {{headline.description}} </p>
+       <p> {{headline.time}} </p>
+   </div>
+   {% endfor %}
+   {% endmacro %}

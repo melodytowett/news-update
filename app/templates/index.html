@@ -6,27 +6,12 @@
     <h3>Headlines</h3>
     <ul> 
         {%for headlines in headlines%}
+        <h5> {{headlines.source}} </h5>
         <li> {{headlines.title}} </li>
-        {% endfor%}
-    </ul>
-    <h3>sources</h3>
-  <ul>
-      {%for source in sources%}
-      <li> {{sources.title}} </li>
-      
-      {%endfor%}
-  </ul>
-  <h3>Articles</h3>
-  <ul>
-      {%for article in articles%}
-      <li> {{articles}} </li>
-      {%endfor%}
-  </ul>
-  <h3>Categories</h3>
-  <ul> 
-      {%for category in categories%}
-      <li> {{categories}} </li>
-      {%endfor%}
+        <p> {{headlines.description}} </p>
+        <img src=" {{headlines.image}} " alt="" height="200px" width="300px">
 
-  </ul>
+
+        {% endfor%}
+    
 {% endblock%}
