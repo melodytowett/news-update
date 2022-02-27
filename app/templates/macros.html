@@ -13,12 +13,24 @@
    {% endfor %}
    {% endmacro %}
 
-{% macro displaySourceList (source_list)%}
+{% macro displaySources(source_list)%}
    {%for source in source_list%}
 
    <li>
-       <a href="/article/{{source.id}}"> {{source.title}} </a>
+       <a href="/article/{{source.id}}"> {{source.name}} </a>
+       <p> {{source.description}} </p>
+       
    </li>
 
    {%endfor%}
    {%endmacro%}
+
+{%macro dispayAllShorts(headline_list)%}
+
+{% for headline in headline_list%}
+<li class="category-info">
+    <span class="category-headline"><span>{{ headline.publishedAt}} </span><a href="{{headline.url}}" class="text-dark">{{ headline.title }}</a> </span>
+    <a href="{{headline.url}}" class="text-primary">Read more... </a>
+</li>
+{% endfor %}
+{% endmacro %}
