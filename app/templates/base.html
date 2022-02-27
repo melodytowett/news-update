@@ -1,0 +1,17 @@
+{%extends 'bootstrap/base.html'%}
+{% if title %}
+<title> {{ title }}</title>
+{% else %}
+<title> News Update website </title>
+{% endif %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+<body>
+<!-- Content block -->
+{% block content %}
+
+{% endblock%}
+</body>
