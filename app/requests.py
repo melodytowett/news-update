@@ -155,9 +155,7 @@ def search_topic(topic_name):
         if search_topic_response['articles']:
             search_topic_list = search_topic_response['articles']
             topic_results = process_headlines_results(search_topic_list)
-            return topic_results
+        return topic_results
 
         
-        else:
-            return render_template("not found")
-
+       

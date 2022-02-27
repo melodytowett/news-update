@@ -1,4 +1,5 @@
-from ..requests import get_headlines,get_category,get_source,get_source_articles
+from turtle import title
+from ..requests import get_headlines,get_category,get_source,get_source_articles, search_topic
 from . import main
 from flask import render_template,request,redirect,url_for
 
@@ -8,9 +9,13 @@ def index():
     View root page function that returns the index page
     '''
     headlines = get_headlines()
-    # categories = get_category("sources")
-    # sources = get_source()
-    return render_template('index.html',headlines= headlines)
+    categories = get_category("sources")
+    sources = get_source()
+    search_topic = request.args.get('q')
+    if search_topic:
+        return(url_for('.search',topic_name = search_topic))
+    else:
+        return render_template('index.html',headlines= headlines,categories = categories,sources = sources)
 
 @main.route('/categories/<category>')
 def category(category):
@@ -32,3 +37,8 @@ def search(topic_name):
     ''' 
     Function to display search results
     '''
+    topic_name_list = topic_name.split(" ")
+    topic_name_format = "+".join(topic_name_list)
+    searched_topics = search_topic(topic_name_format)
+    title = f'search resuls for{topic_name}'
+    return render_template('search.html',searched_topic = searched_topics)
