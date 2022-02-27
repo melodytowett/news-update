@@ -2,5 +2,22 @@
 {%import 'macros.html' as macro%}
 
 {%block content%}
-
+div class="row">
+    <div class="col-md-3">
+        <h3>
+            News Links
+        </h3>
+        {{macro.dispayAllShorts(categories)}}
+     
+    </div>
+    <div class="col-md-6">
+        <h3>Latest News</h3>
+        {{macro.displayHeadlineList(categories)}}
+        </div>
+        <div class="col-md-3">
+            <h3>Sources</h3>
+            {{macro.displaySources(sources)}}
+        </div>
+     
+</div>
 {%endblock%}

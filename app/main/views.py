@@ -33,7 +33,7 @@ def article(id):
     sources = get_source()
     category = get_category('health')
     return render_template('article.html',article = article,sources = sources, category = category)
-    
+
 @main.route('/search/<topic_name>')
 def search(topic_name):
     ''' 
