@@ -39,7 +39,7 @@ def search(topic_name):
     ''' 
     Function to display search results
     '''
-    topic_name_list = topic_name.split(" ")
+    topic_name_list = topic_name.split("politics ")
     topic_name_format = "+".join(topic_name_list)
     searched_topics = search_topic(topic_name_format)
     return render_template('search.html',searched_topic = searched_topics)

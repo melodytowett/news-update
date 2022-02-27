@@ -107,7 +107,7 @@ def process_source_results(source_list):
     return source_results
 
 def get_source_articles(id):
-    get_source_article_url = source_url.format(id,api_key)
+    get_source_article_url = 'https://newsapi.org/v2/top-headlines?country={}&apiKey={}'.format(id,api_key)
     with urllib.request.urlopen(get_source_article_url) as url:
         get_source_data = url.read()
         get_source_response = json.loads(get_source_data)
@@ -158,4 +158,4 @@ def search_topic(topic_name):
         return topic_results
 
         
-       
+  

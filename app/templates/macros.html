@@ -16,11 +16,11 @@
 {% macro displaySources(source_list)%}
    {%for source in source_list%}
 
-   <li>
-       <a href="/article/{{source.id}}"> {{source.name}} </a>
-       <p> {{source.description}} </p>
-       
-   </li>
+   <div>
+    <li class="source-list text-primary text-muted">
+        <a href="/article/{{source.id}}" class="text-danger p-2 source-name">{{ source.name }}</a>
+    </li>
+   </div>
 
    {%endfor%}
    {%endmacro%}
