@@ -4,8 +4,8 @@
 <div class="container">
 {%block content%}
 <div class="row">
-    <form>
-        <input type="text" name="movie_query" placeholder="Search for News" class="form-control bt-sm">
+    <form class="mt-2">
+        <input type="text" name="q" placeholder="Search for topic eg politics" class="form-control">
         <input type="submit"  value="Submit" class="btn btn-default">
     </form>
 
@@ -13,9 +13,10 @@
 <div class="row">
     <div class="col-md-3">
         <h3>
-            Search News
+            News Links
         </h3>
-        {{macro.dispayAllShorts()}}
+        {{macro.dispayAllShorts(headlines)}}
+        {{macro.dispayAllShorts(title)}}
     </div>
     <div class="col-md-6">
         <h3>Latest News</h3>
