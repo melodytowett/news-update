@@ -2,7 +2,7 @@
    {% for headlines in headline_list %}
    <ul> 
      
-       <h5> {{headlines.source}} </h5>
+       <h5> {{headlines.categories}} </h5>
        <li> {{headlines.title}} </li>
        <p> {{headlines.description}} </p>
        <img src=" {{headlines.image}} " alt="" height="200px" width="300px">
@@ -18,7 +18,8 @@
 
    <div>
     <li class="source-list text-primary text-muted">
-        <a href="/article/{{source.id}}" class="text-danger p-2 source-name">{{ source.name }}</a>
+        <a href="{{source.decription}}" class="text-danger p-2 source-name">{{ source.description}}</a>
+        <p> {{source.url}} </p>
     </li>
    </div>
 
@@ -26,11 +27,10 @@
    {%endmacro%}
 
 {%macro dispayAllShorts(headline_list)%}
-
-{% for headline in headline_list%}
+{% for headlines in headline_list%}
 <li class="category-info">
-    <span class="category-headline"><span>{{ headline.publishedAt}} </span><a href="{{headline.url}}" class="text-dark">{{ headline.title }}</a> </span>
-    <a href="{{headline.url}}" class="text-primary">Read more... </a>
+    <span class="category-headline"><span>{{ headlines.publishedAt}} </span><a href="{{headlines.url}}" class="text-dark">{{ headlines.title }}</a> </span>
+    <a href="{{headlines.url}}" class="text-primary">Read more... </a>
 </li>
 {% endfor %}
 {% endmacro %}

@@ -14,5 +14,3 @@ class ArticleTest(unittest.TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article,Article))
 
-if __name__ =='__main__':
-    unittest.main()

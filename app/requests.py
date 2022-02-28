@@ -31,7 +31,7 @@ def get_headlines():
             headline_results_list = get_headline_response['articles']
             headline_results = process_headlines_results(headline_results_list)
 
-        return headline_results
+    return headline_results
 
 def process_headlines_results(headline_list):
     '''
@@ -119,28 +119,26 @@ def get_source_articles(id):
 
     return source_articles
 
-def process_source_article_results(article_list):
+def process_source_article_results(headline_list):
     '''
     funtion to process source articles
     '''
-    article_results = []
-    for article_item in article_list:
-        image = article_item.get('urlToImage')
-        title = article_item.get('title')
-        author = article_item.get('author')
-        description = article_item.get('description')
-        time = article_item.get('publishedAt')
-        url = article_item.get('url')
+    headline_results = []
+    for headline_item in headline_list:
+        image = headline_item.get('urlToImage')
+        title = headline_item.get('title')
+        author = headline_item.get('author')
+        description = headline_item.get('description')
+        time = headline_item.get('publishedAt')
+        url = headline_item.get('url')
 
         if title:
             if description:
-                if image:
-                    if author:
+                if time:                  
+                        headline_object = Article(image,title,author,description,time,url)
+                        headline_results.append(headline_object)
 
-                        article_object = Article(image,title,author,description,time,url)
-                        article_results.append(article_object)
-
-    return article_results
+    return headline_results
 
 def search_topic(topic_name):
     '''
@@ -155,7 +153,9 @@ def search_topic(topic_name):
         if search_topic_response['articles']:
             search_topic_list = search_topic_response['articles']
             topic_results = process_headlines_results(search_topic_list)
-        return topic_results
+            return topic_results
+        else:
+            return render_template('notfound.html')
 
         
   
