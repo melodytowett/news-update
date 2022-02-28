@@ -1,3 +1,4 @@
+from pydoc_data.topics import topics
 from ..requests import get_headlines,get_category,get_source,get_source_articles, search_topic
 from . import main
 from flask import render_template,request,redirect,url_for
@@ -42,4 +43,4 @@ def search(topic_name):
     topic_name_list = topic_name.split(" ")
     topic_name_format = "+".join(topic_name_list)
     searched_topics = search_topic(topic_name_format)
-    return render_template('search.html',searched_topic = searched_topics)
+    return render_template('search.html',topics = searched_topics)

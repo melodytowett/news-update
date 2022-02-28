@@ -1,15 +1,14 @@
 {% macro displayHeadlineList(headline_list)%} 
-   {% for headlines in headline_list %}
-   <ul> 
-     
-       <h5> {{headlines.categories}} </h5>
-       <li> {{headlines.title}} </li>
-       <p> {{headlines.description}} </p>
-       <img src=" {{headlines.image}} " alt="" height="200px" width="300px">
-       <a href=" {{headlines.url}}"></a>
-
-       </ul>
-
+   {% for headline in headline_list %}
+   
+   <div>
+    <div class="image-holder">
+        <a href="{{headline.url}}"> <img src="{{ headline.image }}" alt="" height="300px" width="350px"></a>
+    </div>
+    <a href="{{ headline.url }}" class="text-primary text-sm">{{ headline.title|truncate(100) }}</a>
+    <p class="description">{{ headline.description|truncate(130) }}</p>
+    <p><strong>updated {{ headline.publishedAt |truncate(13)}}</strong></p>
+</div><br>
    {% endfor %}
    {% endmacro %}
 
@@ -27,10 +26,10 @@
    {%endmacro%}
 
 {%macro dispayAllShorts(headline_list)%}
-{% for headlines in headline_list%}
+{% for headline in headline_list%}
 <li class="category-info">
-    <span class="category-headline"><span>{{ headlines.publishedAt}} </span><a href="{{headlines.url}}" class="text-dark">{{ headlines.title }}</a> </span>
-    <a href="{{headlines.url}}" class="text-primary">Read more... </a>
+    <span class="category-headline"><span>{{ headline.publishedAt}} </span><a href="{{headline.url}}" class="text-dark">{{ headline.title }}</a> </span>
+    <a href="{{headline.url}}" class="text-primary">Read more... </a>
 </li>
 {% endfor %}
 {% endmacro %}
