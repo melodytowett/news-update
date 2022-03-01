@@ -65,8 +65,8 @@ def get_category(category):
 
         category_results = None
 
-        if get_category_response['sources']:
-            category_results_list = get_category_response['sources']
+        if get_category_response['articles']:
+            category_results_list = get_category_response['articles']
             category_results = process_headlines_results(category_results_list)
 
     return category_results
@@ -107,14 +107,14 @@ def process_source_results(source_list):
     return source_results
 
 def get_source_articles(id):
-    get_source_article_url = 'https://newsapi.org/v2/top-headlines?country={}&apiKey={}'.format(id,api_key)
+    get_source_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(id,api_key)
     with urllib.request.urlopen(get_source_article_url) as url:
         get_source_data = url.read()
         get_source_response = json.loads(get_source_data)
 
         source_articles = None
-        if get_source_response:
-            source_results_list = get_source_response
+        if get_source_response['articles']:
+            source_results_list = get_source_response['articles']
             source_articles = process_source_article_results(source_results_list)
 
     return source_articles

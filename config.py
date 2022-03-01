@@ -7,9 +7,9 @@ class Config:
     '''
     General cnfiguration
     '''
-    CATEGORY_URL = 'https://newsapi.org/v2/top-headlines/sources?category={}&apiKey={}'
-    SOURCE_URL = 'https://newsapi.org/v2/top-headlines/sources?apiKey={}'
-    HEADLINE_URL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
+    CATEGORY_URL='https://newsapi.org/v2/top-headlines?language=en&category={}&apiKey={}'
+    SOURCE_URL='https://newsapi.org/v2/sources?language=en&country=us&apiKey={}'
+    HEADLINE_URL ='https://newsapi.org/v2/top-headlines?language=en&apiKey={}'
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
 
 class ProdConfig(Config):
